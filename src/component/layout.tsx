@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { Button, Divider, Layout, Menu } from 'antd'
 import type { SelectInfo } from 'rc-menu/lib/interface'
-import Home from './fragment/home'
-import Netdata from './fragment/netdata'
+import Main from './content/ContentMain'
 
 const { Header, Content } = Layout
 
@@ -31,7 +30,7 @@ function AppLayout () {
           </Menu>
         </Header>
         <Content>
-          { (nav === 'home') ? <Home /> : <Netdata /> }
+          <Main selectedNav={ nav } />
         </Content>
       </Layout>
       <Divider />
