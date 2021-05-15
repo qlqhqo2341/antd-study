@@ -29,15 +29,20 @@ jobs:
         with:
           node-version: '14'
         
-      - name: build project
+      - name: install yarn
         run: |
           npm install -g yarn
+          
+      - name: build project
+        run: |
           yarn install
           yarn build
           date > generated.txt
-          ls -alh
+      - name: upload project
+        run: |
           git config user.name qlqhqo2341
           git config user.email qlqhqo2341@naver.com
           git add .
-          git commit -m "Finish Build"
+          git add -f build
+          git commit -m "Finish Build on actions-$GITHUB_RUN_NUMBER"
           git push
