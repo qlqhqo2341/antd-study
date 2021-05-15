@@ -36,6 +36,7 @@ jobs:
       
       - name: build project
         run: |
+          yarn install
           yarn build
       
       - uses: actions/checkout@v2
