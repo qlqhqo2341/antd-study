@@ -6,7 +6,7 @@ name: Build
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ build ]
+    branches: [ main ]
 #   pull_request:
 #     branches: [ build ]
 
@@ -32,18 +32,23 @@ jobs:
       - name: install yarn
         run: |
           npm install -g yarn
-          cd $GITHUB_WORKSPACE
       
       - name: build project
         run: |
           yarn install
           yarn build
+          pwd
+          ls -alh
+        working-directory: $GITHUB_WORKSPACE
       
       - name: upload github
         run: |
           date > generated.txt
+          pwd
+          ls -alh
           git config user.name qlqhqo2341
           git config user.email qlqhqo2341@naver.com
           git add .
           git commit -m "Finish Build"
           git push
+        working-directory: $GITHUB_WORKSPACE
