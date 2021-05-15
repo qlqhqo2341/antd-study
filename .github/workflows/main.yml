@@ -37,14 +37,12 @@ jobs:
         run: |
           yarn install
           yarn build
-          pwd
           ls -alh
         working-directory: $GITHUB_WORKSPACE
       
       - name: upload github
         run: |
           date > generated.txt
-          pwd
           ls -alh
           git config user.name qlqhqo2341
           git config user.email qlqhqo2341@naver.com
