@@ -39,7 +39,7 @@ jobs:
           yarn install
           yarn build
       
-      - uses: actions/checkout@v2
+      - name: upload github
       - run: |
           date > generated.txt
           git config user.name qlqhqo2341
