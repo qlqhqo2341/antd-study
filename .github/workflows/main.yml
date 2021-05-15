@@ -32,18 +32,13 @@ jobs:
       - name: install yarn
         run: |
           npm install -g yarn
+        working-directory: $GITHUB_WORKSPACE
       
-      - name: build project
+      - name: build project and github push
         run: |
           yarn install
           yarn build
-          ls -alh
-        working-directory: $GITHUB_WORKSPACE
-      
-      - name: upload github
-        run: |
           date > generated.txt
-          ls -alh
           git config user.name qlqhqo2341
           git config user.email qlqhqo2341@naver.com
           git add .
