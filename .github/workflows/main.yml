@@ -29,19 +29,15 @@ jobs:
         with:
           node-version: '14'
         
-      - name: install yarn
+      - name: build project
         run: |
           npm install -g yarn
-        working-directory: $GITHUB_WORKSPACE
-      
-      - name: build project and github push
-        run: |
           yarn install
           yarn build
           date > generated.txt
+          ls -alh
           git config user.name qlqhqo2341
           git config user.email qlqhqo2341@naver.com
           git add .
           git commit -m "Finish Build"
           git push
-        working-directory: $GITHUB_WORKSPACE
