@@ -40,7 +40,7 @@ jobs:
           yarn build
       
       - name: upload github
-      - run: |
+        run: |
           date > generated.txt
           git config user.name qlqhqo2341
           git config user.email qlqhqo2341@naver.com
