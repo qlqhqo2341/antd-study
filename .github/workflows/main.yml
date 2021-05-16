@@ -42,7 +42,8 @@ jobs:
         run: |
           git config user.name qlqhqo2341
           git config user.email qlqhqo2341@naver.com
+          git checkout --track origin/build
           git add .
           git add -f build
           git commit -m "Finish Build on actions-$GITHUB_RUN_NUMBER"
-          git push
+          git push -f
