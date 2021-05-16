@@ -42,7 +42,6 @@ jobs:
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: |
           yarn install
-
           
       - name: build project
         run: |
@@ -53,7 +52,7 @@ jobs:
         run: |
           git config user.name qlqhqo2341
           git config user.email qlqhqo2341@naver.com
-          git branch -b build
+          git checkout -b build
           git add -f build
           git commit -m "Finish Build on actions-$GITHUB_RUN_NUMBER"
           git push -f --set-upstream origin build
