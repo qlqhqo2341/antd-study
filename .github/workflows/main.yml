@@ -29,14 +29,13 @@ jobs:
       - name: build project
         run: |
           yarn install
-          yarn build
+          # yarn build
           date > build/generated.txt
       - name: upload project
         run: |
           git config user.name qlqhqo2341
           git config user.email qlqhqo2341@naver.com
-          git fetch origin
-          git checkout --track origin/build
+          git branch -b build
           git add -f build
           git commit -m "Finish Build on actions-$GITHUB_RUN_NUMBER"
-          git push -f
+          git push -f --set-upstream origin build
