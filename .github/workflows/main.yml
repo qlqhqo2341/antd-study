@@ -42,6 +42,7 @@ jobs:
         run: |
           git config user.name qlqhqo2341
           git config user.email qlqhqo2341@naver.com
+          git fetch origin
           git checkout --track origin/build
           git add .
           git add -f build
